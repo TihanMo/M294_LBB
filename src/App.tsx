@@ -1,24 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import axios from 'axios';
+import { Task } from './components/interfaces';
+import TaskList from './components/TaskList';
+
+let url : string = "127.0.0.1:3000";
+
+let emptyTask : Task = {"id":0, "title":"", "completed":false};
 
 function App() {
+  const [tasks, setTasks ]=useState<[] | Task[]>([]);
+  const [taskToEdit, setTaskToEdit]= useState(null);
+
+  const fetchData = () => {
+    return axios.get<Task[]>(url+"tasks").then((response) => setTasks(response.data));
+  }
+
+
+  function deleteTask(taskToDelete:Task) {
+    axios.delete<Task>(url+"task"+ taskToDelete.id).then(()=>{
+      fetchData();
+    });
+  }
+
+  useEffect(() => {
+    fetchData();
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>My Tasks</h1>
+      <TaskList tasks={tasks} deleteTask={deleteTask}></TaskList>
     </div>
   );
 }
