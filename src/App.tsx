@@ -18,7 +18,7 @@ function App() {
   }
 
   const createTask = () => {
-    axios.post<Task>('http://localhost:3001/tasks', {
+    axios.post<Task>(url+ '/tasks', {
     title: tasks
     })
     .then(response => {
@@ -30,8 +30,8 @@ function App() {
   }
 
   function deleteTask(taskToDelete:Task) {
-    let answer = window.confirm("Are you serious right neow bro?")
-    if (answer){
+    //let answer = window.confirm("Are you serious right neow bro?")
+    if (true){
       axios.delete<Task>(url+ "/task/"+ taskToDelete.id).then(()=>{
       fetchData();
     })} else {
@@ -44,7 +44,7 @@ function App() {
   }
 
   function taskEdited(task:Task){
-    axios.post<Task>(url+ "localhost:3000/tasks", task)
+    axios.put(url+ "/tasks", task)
     .then((response) => {
       setTaskToEdit(response.data)
     })
@@ -57,6 +57,7 @@ function App() {
   return (
     <div className="App">
       <h1>My Tasks</h1>
+      
       <EditTaskForm taskToEdit={taskToEdit} taskEdited={taskEdited} />
       <TaskList tasks={tasks} deleteTask={deleteTask} taskToEdit={editTask}></TaskList>
     </div>

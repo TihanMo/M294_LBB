@@ -8,9 +8,7 @@ function EditTaskForm(props: Props) {
     
     useEffect(() => setFormData(props.taskToEdit), [props])
     
-    function onInputChange(event : React.ChangeEvent<HTMLInputElement>) {
-       //name: Name des Formularfelds
-       //value: Wert      
+    function onInputChange(event : React.ChangeEvent<HTMLInputElement>) {   
         const {name, value} = event.target;
         setFormData({...formData, [name]: value});
     }
@@ -22,10 +20,10 @@ function EditTaskForm(props: Props) {
 
     return (
         <div className="editTaskForm">
-            You're editing: {props.taskToEdit.id}. {props.taskToEdit.title}
+            Du bearbeitest: {props.taskToEdit.title}
             <form onSubmit={onFormSubmit}>
                 Bezeichnung: <input type="text" name="title" value={formData.title} onChange={onInputChange} required/>
-                <button>Save</button>
+                <button type="submit">Save</button>
             </form>
         </div>
     )

@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.editTaskForm{
+  display: flexbox;
+  flex-wrap: wrap;
+  -ms-flex-align: center;
+}

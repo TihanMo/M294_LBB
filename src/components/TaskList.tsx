@@ -9,13 +9,13 @@ export interface IProps {
 function TaskList(props: IProps){
     return (
         <>
-            <ol>
+            <ul>
                 {props.tasks.map((todo: Task) => (
-                    <li key={todo.id}>{todo.title} 
+                    <li key={todo.id}>{todo.title} {todo.completed ? <div>Completed</div> : <div>Not Completed</div>} 
                     <button onClick={() => props.deleteTask(todo)}>Delete</button>
                     <button onClick={() => props.taskToEdit(todo)}>Edit</button></li>
                 ))}
-            </ol>
+            </ul>
         </>
     );
 }
