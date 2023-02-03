@@ -17,11 +17,26 @@ function App() {
     axios.get<Task[]>(url+"/tasks").then((response) => setTasks(response.data));
   }
 
+  const createTask = () => {
+    axios.post<Task>('http://localhost:3001/tasks', {
+    title: tasks
+    })
+    .then(response => {
+      setTasks([...tasks, response.data]);
+    })
+    .catch(error => {
+      console.error(error);
+    });
+  }
 
   function deleteTask(taskToDelete:Task) {
-    axios.delete<Task>(url+ "/task"+ taskToDelete.id).then(()=>{
+    let answer = window.confirm("Are you serious right neow bro?")
+    if (answer){
+      axios.delete<Task>(url+ "/task/"+ taskToDelete.id).then(()=>{
       fetchData();
-    });
+    })} else {
+
+    }
   }
 
   function editTask(task:Task) {
@@ -37,13 +52,13 @@ function App() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  },[]);
 
   return (
     <div className="App">
       <h1>My Tasks</h1>
+      <EditTaskForm taskToEdit={taskToEdit} taskEdited={taskEdited} />
       <TaskList tasks={tasks} deleteTask={deleteTask} taskToEdit={editTask}></TaskList>
-      <EditTaskForm taskToEdit={taskToEdit} taskEdited={taskEdited}/>
     </div>
   );
 }

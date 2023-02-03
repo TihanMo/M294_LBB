@@ -1,10 +1,5 @@
-import { Task } from './interfaces';
+import { Task, Props } from './interfaces';
 import { useEffect, useState} from 'react';
-
-interface Props{
-    taskToEdit: Task;
-    taskEdited: (task:Task) => void;
-}
 
 const emptyTask : Task = {"title" : "", "completed": false, "id": 0};
 
@@ -27,7 +22,7 @@ function EditTaskForm(props: Props) {
 
     return (
         <div className="editTaskForm">
-            You're editing this task: {props.taskToEdit.title}
+            You're editing: {props.taskToEdit.id}. {props.taskToEdit.title}
             <form onSubmit={onFormSubmit}>
                 Bezeichnung: <input type="text" name="title" value={formData.title} onChange={onInputChange} required/>
                 <button>Save</button>

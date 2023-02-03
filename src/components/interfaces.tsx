@@ -3,3 +3,8 @@ export type Task = {
     title: string;
     completed: boolean;
 };
+
+export interface Props{
+    taskToEdit: Task;
+    taskEdited: (task:Task) => void;
+}
