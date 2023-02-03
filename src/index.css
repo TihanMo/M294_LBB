@@ -1,4 +1,5 @@
 body {
+  background-color: rgb(224, 255, 255);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -16,4 +17,17 @@ code {
   display: flexbox;
   flex-wrap: wrap;
   -ms-flex-align: center;
+}
+
+button {
+  padding: auto;
+  margin: 5px 5px;
+}
+
+div.completed_task{
+  color: rgb(6, 202, 6);
+}
+
+div.uncompleted_task{
+  color:rgb(202, 6, 6)
 }

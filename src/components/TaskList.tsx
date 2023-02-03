@@ -11,7 +11,7 @@ function TaskList(props: IProps){
         <>
             <ul>
                 {props.tasks.map((todo: Task) => (
-                    <li key={todo.id}>{todo.title} {todo.completed ? <div>Completed</div> : <div>Not Completed</div>} 
+                    <li key={todo.id}>{todo.title} {todo.completed ? <div className="completed_task">Completed</div> : <div className="uncompleted_task">Not Completed</div>} 
                     <button onClick={() => props.deleteTask(todo)}>Delete</button>
                     <button onClick={() => props.taskToEdit(todo)}>Edit</button></li>
                 ))}
