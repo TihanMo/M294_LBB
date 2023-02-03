@@ -7,7 +7,7 @@ In diesem Modul geht es darum, dass man Frontend Applikationen entwickeln kann u
 diese Applikation interaktiv ist und mit dem Backend kommuniziert.  
 
 Ich habe mich dafür entschieden eine React Applikation mit Typescript zu schreiben.  
-<img src="/src/logo.svg" width="50px"> <img src="/src/ts_logo.png" width="50px">
+<img src="/src/logo.svg" width="100px"> <img src="/src/ts_logo.png" width="100px">
 
 # Schritte um die App zu starten  
 
