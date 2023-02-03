@@ -22,7 +22,7 @@ function EditTaskForm(props: Props) {
         <div className="editTaskForm">
             Du bearbeitest: {props.taskToEdit.title}
             <form onSubmit={onFormSubmit}>
-                Bezeichnung: <input type="text" name="title" value={formData.title} onChange={onInputChange} required/>
+                <input type="text" name="title" value={formData.title} onChange={onInputChange} required/>
                 <button type="submit">Save</button>
             </form>
         </div>
