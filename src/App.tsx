@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Task } from './components/interfaces';
 import TaskList from './components/TaskList';
 import EditTaskForm from './components/EditTaskForm';
+import LoginForm from './components/LoginForm';
 
 sessionStorage.setItem(`token`, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxha3NqZmthc2RqZiIsImlhdCI6MTY3NTQzMDgzNH0.iBaXoo6orDtnprbwIH2ol8fDKy5k7wKIJ8lE-VzBv4o" )
 const token = sessionStorage.getItem("token");
@@ -39,6 +40,7 @@ function App() {
   }
 
   function deleteTask(taskToDelete:Task) {
+    //confirmation is broken if popups are blocked, code commented for now
     //let answer = window.confirm("Are you serious right now bro?")
     if (true){ //condition answer would be here
       axios.delete<Task>("http://127.0.0.1:3000/auth/jwt/task/"+ taskToDelete.id, {

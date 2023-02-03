@@ -31,7 +31,7 @@ Mit diesem Command die App starten
 ## Hinweise  
 
 App läuft default auf Port 3000
-Link zur Repository: [Link text](https://github.com/TihanMo/M294_LBB)
+Link zur Repository: [(https://github.com/TihanMo/M294_LBB)](https://github.com/TihanMo/M294_LBB)
 
 ## git log  
 

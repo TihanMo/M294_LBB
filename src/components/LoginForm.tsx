@@ -4,8 +4,11 @@ export default function LoginForm() {
   return (
     <div>
       <form>
-        <input type="email" />
-        <input type="text" />
+        <label>Email: </label>
+        <input type="email" /><br />
+        <label>Password: </label>
+        <input type="password" /><br />
+        <input type="submit" value="Submit" />
       </form>
     </div>
   )
