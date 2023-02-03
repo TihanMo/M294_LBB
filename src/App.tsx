@@ -63,7 +63,7 @@ function App() {
       }
     })
     .then((response) => {
-      setTaskToEdit(response.data)
+      fetchData();
     })
   }
 

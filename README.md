@@ -14,7 +14,7 @@ Ich habe mich dafür entschieden eine React Applikation mit Typescript zu schrei
 ## Voraussetzungen
 
 nodejs  
-browser
+browser  
 
 ## npm install  
 
@@ -30,8 +30,10 @@ Mit diesem Command die App starten
 
 ## Hinweise  
 
+App läuft default auf Port 3000
 Link zur Repository: [Link text](https://github.com/TihanMo/M294_LBB)
 
-## git log
+## git log  
+
 Git log will be outputted here after the project is completed
 
