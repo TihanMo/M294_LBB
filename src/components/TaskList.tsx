@@ -1,4 +1,3 @@
-import { isPropertySignature } from "typescript";
 import {Task} from "./interfaces";
 
 export interface IProps {

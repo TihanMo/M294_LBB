@@ -1,17 +1,21 @@
 import { Task } from './interfaces';
 import { useEffect, useState} from 'react';
-import { IProps } from './TaskList';
+
+interface Props{
+    taskToEdit: Task;
+    taskEdited: (task:Task) => void;
+}
 
 const emptyTask : Task = {"title" : "", "completed": false, "id": 0};
 
-function EditTaskForm(props: IProps) {
+function EditTaskForm(props: Props) {
     const [formData, setFormData] = useState<Task>(props.taskToEdit ?? emptyTask);
     
     useEffect(() => setFormData(props.taskToEdit), [props])
     
     function onInputChange(event : React.ChangeEvent<HTMLInputElement>) {
        //name: Name des Formularfelds
-       //value: Wert       
+       //value: Wert      
         const {name, value} = event.target;
         setFormData({...formData, [name]: value});
     }

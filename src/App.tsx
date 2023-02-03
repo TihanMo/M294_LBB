@@ -5,16 +5,16 @@ import { Task } from './components/interfaces';
 import TaskList from './components/TaskList';
 import EditTaskForm from './components/EditTaskForm';
 
-let url : string = "127.0.0.1:3000/";
+let url : string = "localhost:3000/";
 
 let emptyTask : Task = {"id":0, "title":"", "completed":false};
 
 function App() {
   const [tasks, setTasks ]=useState<[] | Task[]>([]);
-  const [taskToEdit, setTaskToEdit]= useState(null);
+  const [taskToEdit, setTaskToEdit]= useState(emptyTask);
 
   const fetchData = () => {
-    return axios.get<Task[]>(url+"tasks").then((response) => setTasks(response.data));
+    axios.get<Task[]>(url+"tasks").then((response) => setTasks(response.data));
   }
 
 
@@ -24,6 +24,17 @@ function App() {
     });
   }
 
+  function editTask(task:Task) {
+    setTaskToEdit(task);
+  }
+
+  function taskEdited(task:Task){
+    axios.post<Task>(url+"tasks", task)
+    .then((response) => {
+      setTaskToEdit(response.data)
+    })
+  }
+
   useEffect(() => {
     fetchData();
   });
@@ -31,8 +42,8 @@ function App() {
   return (
     <div className="App">
       <h1>My Tasks</h1>
-      <TaskList tasks={tasks} deleteTask={deleteTask}></TaskList>
-      <EditTaskForm task={taskToEdit}/>
+      <TaskList tasks={tasks} deleteTask={deleteTask} taskToEdit={editTask}></TaskList>
+      <EditTaskForm taskToEdit={taskToEdit} taskEdited={taskEdited}/>
     </div>
   );
 }
