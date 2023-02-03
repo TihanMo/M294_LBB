@@ -3,8 +3,9 @@ import './App.css';
 import axios from 'axios';
 import { Task } from './components/interfaces';
 import TaskList from './components/TaskList';
+import EditTaskForm from './components/EditTaskForm';
 
-let url : string = "127.0.0.1:3000";
+let url : string = "127.0.0.1:3000/";
 
 let emptyTask : Task = {"id":0, "title":"", "completed":false};
 
@@ -31,6 +32,7 @@ function App() {
     <div className="App">
       <h1>My Tasks</h1>
       <TaskList tasks={tasks} deleteTask={deleteTask}></TaskList>
+      <EditTaskForm task={taskToEdit}/>
     </div>
   );
 }

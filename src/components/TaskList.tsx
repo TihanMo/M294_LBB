@@ -4,6 +4,7 @@ import {Task} from "./interfaces";
 export interface IProps {
     tasks: Task[];
     deleteTask: (tasks:Task) => void;
+    taskToEdit: (task:Task) => void;    
 }
 
 function TaskList(props: IProps){
