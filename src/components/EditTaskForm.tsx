@@ -27,7 +27,7 @@ function EditTaskForm(props: Props) {
 
     return (
         <div className="editTaskForm">
-            Props-Title: {props.taskToEdit.title}
+            You're editing this task: {props.taskToEdit.title}
             <form onSubmit={onFormSubmit}>
                 Bezeichnung: <input type="text" name="title" value={formData.title} onChange={onInputChange} required/>
                 <button>Save</button>

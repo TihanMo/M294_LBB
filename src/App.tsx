@@ -5,7 +5,7 @@ import { Task } from './components/interfaces';
 import TaskList from './components/TaskList';
 import EditTaskForm from './components/EditTaskForm';
 
-let url : string = "localhost:3000/";
+let url = "http://localhost:3000";
 
 let emptyTask : Task = {"id":0, "title":"", "completed":false};
 
@@ -14,12 +14,12 @@ function App() {
   const [taskToEdit, setTaskToEdit]= useState(emptyTask);
 
   const fetchData = () => {
-    axios.get<Task[]>(url+"tasks").then((response) => setTasks(response.data));
+    axios.get<Task[]>(url+"/tasks").then((response) => setTasks(response.data));
   }
 
 
   function deleteTask(taskToDelete:Task) {
-    axios.delete<Task>(url+"task"+ taskToDelete.id).then(()=>{
+    axios.delete<Task>(url+ "/task"+ taskToDelete.id).then(()=>{
       fetchData();
     });
   }
@@ -29,7 +29,7 @@ function App() {
   }
 
   function taskEdited(task:Task){
-    axios.post<Task>(url+"tasks", task)
+    axios.post<Task>(url+ "localhost:3000/tasks", task)
     .then((response) => {
       setTaskToEdit(response.data)
     })
